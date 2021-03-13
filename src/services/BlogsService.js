@@ -44,8 +44,9 @@ class BlogsService {
 
   async editBlog(id, body) {
     try {
-      await api.put('api/blogs' + id, body)
-      this.getAllBlogs()
+      const res = await api.put('api/blogs/' + id, body)
+      console.log(res)
+      AppState.activeBlog = res.data
     } catch (error) {
       console.error(error)
     }

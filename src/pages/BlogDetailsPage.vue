@@ -16,6 +16,15 @@
             <p class="card-text" v-if="state.activeBlog.creator">
               {{ state.activeBlog.creator.name }}
             </p>
+            <div>
+              <form class="form-inline" @submit.prevent="editBlog" action="">
+                <input type="text" class="p-1" placeholder="Blog Title..." v-model="state.editBlog.title">
+                <input type="text" class="p-1" placeholder="Blog Body..." v-model="state.editBlog.body">
+                <button class="btn btn-dark ml-1" type="submit">
+                  Edit Blog
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -51,7 +60,8 @@ export default {
       user: computed(() => AppState.user),
       activeBlog: computed(() => AppState.activeBlog),
       comments: computed(() => AppState.comments),
-      newComment: {}
+      newComment: {},
+      editBlog: computed(() => AppState.activeBlog)
     })
     onMounted(async() => await blogsService.getBlogById(route.params.id))
     onMounted(async() => await blogsService.getCommentsByBlogId(route.params.id))
@@ -65,7 +75,7 @@ export default {
           await commentsService.createComment(comment)
           // await blogsService.getBlogById(route.params.id)
           await blogsService.getCommentsByBlogId(route.params.id)
-          state.newComment = state.comments
+          state.newComment = {}
         } catch (error) {
           console.error(error)
         }
@@ -74,6 +84,13 @@ export default {
         try {
           await blogsService.deleteBlog(state.activeBlog.id)
           router.push({ name: 'Home' })
+        } catch (error) {
+          console.error(error)
+        }
+      },
+      async editBlog() {
+        try {
+          await blogsService.editBlog(state.activeBlog.id, state.editBlog)
         } catch (error) {
           console.error(error)
         }

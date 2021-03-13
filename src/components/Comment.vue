@@ -20,6 +20,7 @@
 import { computed, reactive } from 'vue'
 import { AppState } from '../AppState'
 import { commentsService } from '../services/CommentsService'
+import { blogsService } from '../services/BlogsService'
 
 export default {
   name: 'Comment',
@@ -33,8 +34,13 @@ export default {
     })
     return {
       state,
-      deleteComment() {
-        commentsService.deleteComment(props.comments.id)
+      async deleteComment() {
+        try {
+          await commentsService.deleteComment(props.comments.id)
+          await blogsService.getCommentsByBlogId(props.comments.blog)
+        } catch (error) {
+          console.error(error)
+        }
       }
     }
   },

@@ -56,7 +56,8 @@ export default {
     const router = useRouter
     const state = reactive({
       user: computed(() => AppState.user),
-      blog: computed(() => AppState.blogs)
+      blog: computed(() => AppState.blogs),
+      editBlog: {}
     })
     return {
       state,

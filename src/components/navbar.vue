@@ -124,4 +124,7 @@ a:hover {
 .nav-item .nav-link.router-link-exact-active{
   color: var(--primary);
 }
+.rounded {
+    border-radius: 4rem !important;
+}
 </style>

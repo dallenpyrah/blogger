@@ -1,8 +1,18 @@
 <template>
   <div class="about text-center">
-    <h1>Welcome {{ account.name }}</h1>
-    <img class="rounded" :src="account.picture" alt="" />
-    <p>{{ account.email }}</p>
+    <div class="row justify-content-center">
+      <div class="col-6 card bg-dark text-light m-5 shadow-lg">
+        <div>
+          <h5 class="p-3">
+            Welcome {{ account.name }}
+          </h5>
+          <img class="rounded" :src="account.picture" alt="" />
+        </div>
+        <p class="p-3">
+          {{ account.email }}
+        </p>
+      </div>
+    </div>
     <div class="row">
       <Blog v-for="blog in state.blog" :key="blog._id" :blog="blog" />
     </div>
@@ -43,5 +53,8 @@ export default {
 <style scoped>
 img {
   max-width: 100px;
+}
+.rounded {
+    border-radius: 4rem !important;
 }
 </style>
