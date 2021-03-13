@@ -1,12 +1,8 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
+    <router-link class="navbar-brand d-flex nav-link" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
-        <img
-          alt="logo"
-          src="../assets/img/cw-logo.png"
-          height="45"
-        />
+        <i class="fa fa-book ml-3" aria-hidden="true"></i>
       </div>
     </router-link>
     <button
@@ -27,9 +23,9 @@
             Home
           </router-link>
         </li>
-        <li class="nav-item">
-          <router-link :to="{ name: 'About' }" class="nav-link">
-            About
+        <li class="nav-item" v-if="user.isAuthenticated">
+          <router-link :to="{ name: 'Account' }" class="nav-link">
+            Account
           </router-link>
         </li>
       </ul>
