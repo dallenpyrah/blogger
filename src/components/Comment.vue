@@ -6,7 +6,8 @@
           {{ comments.body }}
         </h4>
         <p class="card-title text-dark">
-          <!-- <span v-if="comments">{{ comments.creator.name }}</span> -->
+          <img :src="comments.creator.picture" class="rounded mr-2" width="50" alt="">
+          <span v-if="comments">{{ comments.creator.name }}</span>
         </p>
         <div v-if="comments.creator && comments.creator.email == state.user.email">
           <i class="fa fa-trash text-danger" aria-hidden="true" @click="deleteComment"></i>

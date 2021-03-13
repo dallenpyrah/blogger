@@ -1,7 +1,7 @@
 <template>
   <div v-if="blog.creator && blog.creator.email == state.user.email" class="col-6">
     <router-link :to="{name:'BlogDetails', params: {id: blog.id}}">
-      <div class="card m-4 text-white bg-dark">
+      <div class="card m-4 text-white text-center bg-dark">
         <div class="card-body">
           <h4 class="card-title">
             <i class="fa fa-bookmark-o text-danger mr-2" aria-hidden="true"></i>
@@ -22,7 +22,7 @@
   </div>
   <div v-else class="col-6">
     <router-link :to="{name:'BlogDetails', params: {id: blog.id}}">
-      <div class="card m-4 text-white bg-light text-dark shadow-lg">
+      <div class="card m-4 text-white text-center bg-light text-dark shadow-lg">
         <div class="card-body">
           <h4 class="card-title">
             <i class="fa fa-bookmark-o text-primary mr-2" aria-hidden="true"></i>

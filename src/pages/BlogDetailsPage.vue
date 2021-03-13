@@ -16,7 +16,7 @@
             <p class="card-text" v-if="state.activeBlog.creator">
               {{ state.activeBlog.creator.name }}
             </p>
-            <div>
+            <div v-if="state.activeBlog.creator && state.user.email == state.activeBlog.creator.email">
               <form class="form-inline" @submit.prevent="editBlog" action="">
                 <input type="text" class="p-1" placeholder="Blog Title..." v-model="state.editBlog.title">
                 <input type="text" class="p-1" placeholder="Blog Body..." v-model="state.editBlog.body">
