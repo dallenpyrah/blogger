@@ -7,7 +7,7 @@
           <h4 class="card-title">
             {{ blog.title }}
           </h4>
-          <p class="card-text" v-if="blog.creator">
+          <p class="card-text text-grey-creator" v-if="blog.creator">
             <img :src="blog.creator.picture" class="rounded mr-2" width="50" alt="">
             {{ blog.creator.name }}
           </p>
@@ -28,7 +28,7 @@
           <h4 class="card-title">
             {{ blog.title }}
           </h4>
-          <p class="card-text" v-if="blog.creator">
+          <p class="card-text text-grey" v-if="blog.creator">
             <img :src="blog.creator.picture" class="rounded mr-2" width="50" alt="">
             {{ blog.creator.name }}
           </p>
@@ -80,5 +80,11 @@ export default {
 <style>
 .rounded {
     border-radius: 4rem !important;
+}
+.text-grey{
+  color: rgb(100, 100, 100);
+}
+.text-grey-creator{
+  color: rgb(223, 223, 223);
 }
 </style>

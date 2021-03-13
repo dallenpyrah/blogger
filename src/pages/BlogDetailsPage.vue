@@ -6,13 +6,17 @@
           <div class="card-body">
             <div v-if="state.activeBlog.creator && state.user.email == state.activeBlog.creator.email">
             </div>
-            <h4 class="card-title">
-              {{ state.activeBlog.title }}
-            </h4>
-            <h6 class="card-body">
-              {{ state.activeBlog.body }}
-            </h6>
-            <p class="card-text" v-if="state.activeBlog.creator">
+            <div class="row justify-content-center">
+              <h4 class="col-3 card bg-dark text-light shadow-lg p-2">
+                {{ state.activeBlog.title }}
+              </h4>
+            </div>
+            <div class="row justify-content-center">
+              <h6 class="m-3 text-grey">
+                {{ state.activeBlog.body }}
+              </h6>
+            </div>
+            <p class="card-text text-grey-creator badge badge-light" v-if="state.activeBlog.creator">
               {{ state.activeBlog.creator.name }}
             </p>
             <div v-if="state.activeBlog.creator && state.user.email == state.activeBlog.creator.email" class="text-left">
@@ -154,6 +158,12 @@ export default {
 <style>
 .hidden{
   display: none;
+}
+.text-grey{
+  color: rgb(0, 0, 0);
+}
+.text-grey-creator{
+  color: rgb(63, 63, 63);
 }
 
 </style>

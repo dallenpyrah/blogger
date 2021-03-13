@@ -46,6 +46,18 @@
         </h6>
       </div>
     </div>
+    <div v-else class="row justify-content-around">
+      <div class="col-5 mt-6 mb-6 bg-dark text-light card shadow-sm">
+        <h6 class="m-5 text-light">
+          <i class="fa fa-book fa-2x mr-2" aria-hidden="true"></i>Blogger is a platform for the people who need a break from reality.
+        </h6>
+      </div>
+      <div class="col-5 mt-6 mb-6 bg-dark card shadow-sm">
+        <h6 class="m-5 text-light">
+          <i class="fa fa-globe fa-spin fa-2x mr-2" aria-hidden="true"></i>Our blogs are created by users all across the globe.
+        </h6>
+      </div>
+    </div>
     <div class="row">
       <Blog v-for="blog in state.blog" :key="blog._id" :blog="blog" />
     </div>
