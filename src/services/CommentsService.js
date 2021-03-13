@@ -24,7 +24,7 @@ class CommentsService {
   async deleteComment(id) {
     try {
       const res = await api.delete('api/comments/' + id)
-      AppState.comments = res.data
+      AppState.comments = res
     } catch (error) {
       console.error(error)
     }

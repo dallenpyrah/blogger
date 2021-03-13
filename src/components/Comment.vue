@@ -29,21 +29,19 @@ export default {
   setup(props) {
     const state = reactive({
       user: computed(() => AppState.user),
+      comments: computed(() => AppState.comments),
       editComment: {}
     })
     return {
       state,
-      async deleteComment() {
-        try {
-          await commentsService.deleteComment(props.comments.id)
-        } catch (error) {
-          console.error(error)
-        }
+      deleteComment() {
+        commentsService.deleteComment(props.comments.id)
       }
     }
   },
   components: {}
 }
+
 </script>
 
 <style>

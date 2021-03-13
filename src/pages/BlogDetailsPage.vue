@@ -24,7 +24,7 @@
         <div class="mt-5" v-if="state.user.isAuthenticated">
           <form @submit.prevent="createComment">
             <input type="text" class="mr-2 mt-1 p-1" placeholder="Add a comment..." v-model="state.newComment.body">
-            <button class="btn btn-success p-2">
+            <button class="btn btn-success p-2" type="sumbit">
               Add Comment
             </button>
           </form>
