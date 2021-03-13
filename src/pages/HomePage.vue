@@ -14,8 +14,10 @@
       </div>
     </div>
     <div class="row justify-content-around" v-if="state.user.isAuthenticated">
-      <div class="col-2 mt-6 mb-6 bg-primary text-light card shadow-sm">
-        <h6 class="m-5 text-light"><i class="fa fa-book fa-2x mr-2" aria-hidden="true"></i>Blogger is a platform for the people who need a break from reality.</h6>
+      <div class="col-2 mt-6 mb-6 bg-dark text-light card shadow-sm">
+        <h6 class="m-5 text-light">
+          <i class="fa fa-book fa-2x mr-2" aria-hidden="true"></i>Blogger is a platform for the people who need a break from reality.
+        </h6>
       </div>
       <div class="col-6 card m-5 p-4 shadow-lg">
         <h6>Create a blog post</h6>
@@ -38,8 +40,10 @@
           </button>
         </form>
       </div>
-      <div class="col-2 mt-6 mb-6 bg-primary card shadow-sm">
-        <h6 class="m-5 text-light"><i class="fa fa-globe fa-spin fa-2x mr-2" aria-hidden="true"></i>Our blogs are created by users all across the globe.</h6>
+      <div class="col-2 mt-6 mb-6 bg-dark card shadow-sm">
+        <h6 class="m-5 text-light">
+          <i class="fa fa-globe fa-spin fa-2x mr-2" aria-hidden="true"></i>Our blogs are created by users all across the globe.
+        </h6>
       </div>
     </div>
     <div class="row">
@@ -53,10 +57,12 @@ import { computed, onMounted, reactive } from 'vue'
 import { AppState } from '../AppState'
 import Blog from '../components/Blog'
 import { blogsService } from '../services/BlogsService'
+import { useRouter } from 'vue-router'
 
 export default {
   name: 'Home',
   setup() {
+    const router = useRouter()
     const state = reactive({
       user: computed(() => AppState.user),
       blog: computed(() => AppState.blogs),
@@ -67,7 +73,9 @@ export default {
       state,
       async createBlog() {
         try {
-          await blogsService.createBlog(state.newBlog)
+          const blogId = await blogsService.createBlog(state.newBlog)
+          console.log(state.newBlog)
+          router.push({ name: 'BlogDetails', params: { id: blogId } })
           state.newBlog = {}
         } catch (error) {
           console.error(error)
@@ -98,8 +106,11 @@ export default {
   margin-top: 18rem;
 }
 .background{
-  background-color: rgb(243, 243, 243);
+  background-image: url('https://www.xmple.com/wallpaper/orange-gradient-yellow-linear-3200x1800-c2-ffffe0-ff8c00-a-315-f-14.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
+
 .mt-6{
   margin-top: 8rem;
 }

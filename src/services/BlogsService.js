@@ -1,3 +1,4 @@
+
 import { AppState } from '../AppState'
 import { api } from './AxiosService'
 
@@ -36,7 +37,8 @@ class BlogsService {
     try {
       const res = await api.post('api/blogs', body)
       console.log(res)
-      this.getAllBlogs()
+      AppState.blogs.push(res.data)
+      return res.data.id
     } catch (error) {
       console.error(error)
     }

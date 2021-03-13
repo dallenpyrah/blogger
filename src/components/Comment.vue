@@ -3,15 +3,18 @@
     <div class="card text-white bg-light">
       <div class="card-body">
         <h4 class="card-title text-dark">
-          {{ comments.body }}
+          <div v-if="comments.creator && comments.creator.email == state.user.email">
+            <i class="fa fa-trash text-danger" aria-hidden="true" @click="deleteComment"></i>
+            {{ comments.body }}
+          </div>
+          <div v-else>
+            {{ comments.body }}
+          </div>
         </h4>
         <p class="card-title text-dark">
           <img :src="comments.creator.picture" class="rounded mr-2" width="50" alt="">
           <span v-if="comments">{{ comments.creator.name }}</span>
         </p>
-        <div v-if="comments.creator && comments.creator.email == state.user.email">
-          <i class="fa fa-trash text-danger" aria-hidden="true" @click="deleteComment"></i>
-        </div>
       </div>
     </div>
   </div>

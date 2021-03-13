@@ -10,8 +10,9 @@
     </router-view>
   </main>
   <footer>
-    <div class="bg-dark text-light text-center p-4">
-      Made with 💖 by CodeWorks
+    <div class="bg-dark text-light text-left p-4">
+      <i class="fa fa-instagram fa-2x" aria-hidden="true"></i>
+      <i class="fa fa-github fa-2x ml-4" aria-hidden="true"></i>
     </div>
   </footer>
 </template>
