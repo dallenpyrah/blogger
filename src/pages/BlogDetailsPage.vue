@@ -38,7 +38,7 @@
 import { computed, onMounted, reactive } from 'vue'
 import { AppState } from '../AppState'
 import { blogsService } from '../services/BlogsService'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import Comment from '../components/Comment'
 import { commentsService } from '../services/CommentsService'
 
@@ -46,6 +46,7 @@ export default {
   name: 'BlogDetails',
   setup() {
     const route = useRoute()
+    const router = useRouter()
     const state = reactive({
       user: computed(() => AppState.user),
       activeBlog: computed(() => AppState.activeBlog),
@@ -54,6 +55,7 @@ export default {
     })
     onMounted(async() => await blogsService.getBlogById(route.params.id))
     onMounted(async() => await blogsService.getCommentsByBlogId(route.params.id))
+
     return {
       route,
       state,
@@ -62,6 +64,8 @@ export default {
           const comment = { blog: state.activeBlog.id, body: state.newComment.body }
           console.log(comment)
           await commentsService.createComment(comment)
+          // await blogsService.getBlogById(route.params.id)
+          await blogsService.getCommentsByBlogId(route.params.id)
           state.newComment = {}
         } catch (error) {
           console.error(error)
@@ -70,6 +74,7 @@ export default {
       async deleteBlog() {
         try {
           await blogsService.deleteBlog(state.activeBlog.id)
+          router.push({ name: 'Home' })
         } catch (error) {
           console.error(error)
         }

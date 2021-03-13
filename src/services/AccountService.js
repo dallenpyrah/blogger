@@ -15,7 +15,8 @@ class AccountService {
   async getAccountBlogs() {
     try {
       const res = await api.get('/account/blogs')
-      AppState.blogs = res.data
+      console.log(res)
+      AppState.userBlogs = res.data
     } catch (error) {
       console.error(error)
     }

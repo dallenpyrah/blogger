@@ -6,16 +6,10 @@
           {{ comments.body }}
         </h4>
         <p class="card-title text-dark">
-          {{ comments.creator.name }}
+          <!-- <span v-if="comments">{{ comments.creator.name }}</span> -->
         </p>
         <div v-if="comments.creator && comments.creator.email == state.user.email">
-          <i class="fa fa-trash text-danger" aria-hidden="true"></i>
-          <form @submit.prevent="editComment">
-            <input type="text" placeholder="Edit Comment">
-            <button class="btn btn-success">
-              Edit Comment
-            </button>
-          </form>
+          <i class="fa fa-trash text-danger" aria-hidden="true" @click="deleteComment"></i>
         </div>
       </div>
     </div>
@@ -25,19 +19,27 @@
 <script>
 import { computed, reactive } from 'vue'
 import { AppState } from '../AppState'
+import { commentsService } from '../services/CommentsService'
 
 export default {
   name: 'Comment',
   props: {
     comments: { type: Object, required: true }
   },
-  setup() {
+  setup(props) {
     const state = reactive({
       user: computed(() => AppState.user),
       editComment: {}
     })
     return {
-      state
+      state,
+      async deleteComment() {
+        try {
+          await commentsService.deleteComment(props.comments.id)
+        } catch (error) {
+          console.error(error)
+        }
+      }
     }
   },
   components: {}

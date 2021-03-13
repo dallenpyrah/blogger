@@ -13,7 +13,7 @@
             No Name
           </p>
           <div v-if="blog.creator && blog.creator.email == state.user.email">
-            <i class="fa fa-trash text-danger" aria-hidden="true"></i>
+            <i class="fa fa-trash text-danger" aria-hidden="true" @click="deleteBlog"></i>
           </div>
         </div>
       </div>
@@ -45,6 +45,7 @@
 import { computed, reactive } from 'vue'
 import { blogsService } from '../services/BlogsService'
 import { AppState } from '../AppState'
+import { useRouter } from 'vue-router'
 
 export default {
   name: 'Blog',
@@ -52,6 +53,7 @@ export default {
     blog: Object
   },
   setup(props) {
+    const router = useRouter
     const state = reactive({
       user: computed(() => AppState.user),
       blog: computed(() => AppState.blogs)
@@ -61,6 +63,7 @@ export default {
       async deleteBlog() {
         try {
           await blogsService.deleteBlog(props.blog.id)
+          router.push({ name: 'Home' })
         } catch (error) {
           console.error(error)
         }
