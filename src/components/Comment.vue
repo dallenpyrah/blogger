@@ -29,8 +29,7 @@ export default {
   setup(props) {
     const state = reactive({
       user: computed(() => AppState.user),
-      comments: computed(() => AppState.comments),
-      editComment: {}
+      comments: computed(() => AppState.comments)
     })
     return {
       state,

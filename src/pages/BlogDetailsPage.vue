@@ -62,11 +62,10 @@ export default {
       async createComment() {
         try {
           const comment = { blog: state.activeBlog.id, body: state.newComment.body }
-          console.log(comment)
           await commentsService.createComment(comment)
           // await blogsService.getBlogById(route.params.id)
           await blogsService.getCommentsByBlogId(route.params.id)
-          state.newComment = {}
+          state.newComment = state.comments
         } catch (error) {
           console.error(error)
         }

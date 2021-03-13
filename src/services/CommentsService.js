@@ -4,9 +4,7 @@ const { api } = require('./AxiosService')
 class CommentsService {
   async createComment(newComment) {
     try {
-      const res = await api.post('api/comments', newComment)
-      console.log(res)
-      AppState.comments = res.data
+      return await api.post('api/comments', newComment)
     } catch (error) {
       console.error(error)
     }
@@ -23,8 +21,7 @@ class CommentsService {
 
   async deleteComment(id) {
     try {
-      const res = await api.delete('api/comments/' + id)
-      AppState.comments = res
+      return await api.delete('api/comments/' + id)
     } catch (error) {
       console.error(error)
     }
