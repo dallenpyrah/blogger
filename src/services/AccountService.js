@@ -25,7 +25,7 @@ class AccountService {
   async getAccountComments() {
     try {
       const res = await api.get('/account/comments')
-      AppState.comments = res.data
+      AppState.userComments = res.data
     } catch (error) {
       console.error(error)
     }
