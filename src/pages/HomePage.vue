@@ -58,7 +58,7 @@
         </h6>
       </div>
     </div>
-    <div class="row">
+    <div class="row test">
       <Blog v-for="blog in state.blog" :key="blog._id" :blog="blog" />
     </div>
   </div>
