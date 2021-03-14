@@ -30,6 +30,9 @@ import Comment from '../components/Comment'
 import { accountService } from '../services/AccountService'
 export default {
   name: 'Account',
+  props: {
+    blog: Object
+  },
   setup() {
     const state = reactive({
       blog: computed(() => AppState.userBlogs),

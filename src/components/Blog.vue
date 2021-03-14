@@ -48,6 +48,7 @@ import { computed, reactive } from 'vue'
 import { blogsService } from '../services/BlogsService'
 import { AppState } from '../AppState'
 import { useRouter } from 'vue-router'
+import 'animate.css'
 
 export default {
   name: 'Blog',
