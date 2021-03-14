@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@bcwdev/auth0provider-client": "0.0.3",
+    "animate.css": "^4.1.1",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "jquery": "^3.5.1",

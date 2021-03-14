@@ -2,14 +2,16 @@
   <div class="container-fluid background">
     <div class="row">
       <div class="col-12 text-center landing-page text-light">
-        <h1 class="align-items-center m-center">
-          <i class="fa fa-book text-primary" aria-hidden="true"></i> Blogger
+        <h1 class="align-items-center m-center animate__animated animate__fadeIn">
+          <i class="fa fa-book text-primary animate__animated animate__bounce" aria-hidden="true"></i> Blogger
         </h1>
         <div class="row justify-content-center" v-if="state.user.isAuthenticated">
         </div>
         <h4 class="align-items-center m-center">
-          <p><span>Scroll down to see all of our blogs</span></p>
-          <i class="fa fa-arrow-circle-down text-primary mt-4" aria-hidden="true"></i>
+          <p class="animate__animated animate__slideInDown animate__delay-2s">
+            <span>Scroll down to see all of our blogs</span>
+          </p>
+          <i class="fa fa-arrow-circle-down text-primary mt-4 animate__animated animate__slideInDown animate__delay-3s animate__infinite" aria-hidden="true"></i>
         </h4>
       </div>
     </div>
