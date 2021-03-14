@@ -16,12 +16,12 @@
       </div>
     </div>
     <div class="row justify-content-around" v-if="state.user.isAuthenticated">
-      <div class="col-2 mt-6 mb-6 bg-dark text-light card shadow-sm">
+      <div class="d-none d-lg-block col-lg-2 col-10 mt-6 mb-6 bg-dark text-light card shadow-sm">
         <h6 class="m-5 text-light">
           <i class="fa fa-book fa-2x mr-2" aria-hidden="true"></i>Blogger is a platform for the people who need a break from reality.
         </h6>
       </div>
-      <div class="col-6 card m-5 p-4 shadow-lg">
+      <div class="col-lg-6 col-11 card m-5 p-4 shadow-lg">
         <h6>Create a blog post</h6>
         <form @submit.prevent="createBlog">
           <div class="form-group">
@@ -42,7 +42,7 @@
           </button>
         </form>
       </div>
-      <div class="col-2 mt-6 mb-6 bg-dark card shadow-sm">
+      <div class="d-none d-lg-block  col-lg-2 col-10  mt-6 mb-6 bg-dark card shadow-sm">
         <h6 class="m-5 text-light">
           <i class="fa fa-globe fa-spin fa-2x mr-2" aria-hidden="true"></i>Our blogs are created by users all across the globe.
         </h6>
