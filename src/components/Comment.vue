@@ -58,7 +58,7 @@ export default {
 
 <style>
 .comment:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
   box-shadow: 1px 3px 5px rgb(94, 94, 94);
   cursor: pointer
 }
