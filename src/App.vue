@@ -11,8 +11,8 @@
   </main>
   <footer>
     <div class="bg-dark text-light text-left p-4">
-      <i class="fa fa-instagram fa-2x" aria-hidden="true"></i>
-      <i class="fa fa-github fa-2x ml-4" aria-hidden="true"></i>
+      <a href="https://www.instagram.com/imdallen/?hl=en"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
+      <a href="https://github.com/dallenpyrah"><i class="fa fa-github fa-2x ml-4" aria-hidden="true"></i></a>
     </div>
   </footer>
 </template>

@@ -30,11 +30,6 @@
                 Delete Blog
               </button>
             </div>
-            <div class="text-left" v-else>
-              <button class="btn btn-dark text-light mr-2" @click="toggleComment">
-                Add Comment
-              </button>
-            </div>
           </div>
         </div>
       </div>

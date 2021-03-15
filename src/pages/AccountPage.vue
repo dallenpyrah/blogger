@@ -1,5 +1,5 @@
 <template>
-  <div class="about text-center">
+  <div class="container-fluid text-center">
     <div class="row justify-content-center">
       <div class="col-6 card bg-dark text-light m-5 shadow-lg">
         <div>
