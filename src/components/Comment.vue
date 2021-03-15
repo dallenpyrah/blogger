@@ -1,7 +1,7 @@
 <template>
   <div class="col-10">
     <router-link :to="{name:'BlogDetails', params: {id: comments.blog}}">
-      <div class="card text-white bg-light">
+      <div class="card comment text-white bg-light">
         <div class="card-body">
           <h4 class="card-title text-dark">
             <div v-if="comments.creator && comments.creator.email == state.user.email">
@@ -57,4 +57,14 @@ export default {
 </script>
 
 <style>
+.comment:hover {
+  transform: translateY(-5px);
+  box-shadow: 1px 3px 5px rgb(94, 94, 94);
+  cursor: pointer
+}
+
+.comment {
+  transition: all .2s;
+  color: black
+}
 </style>
