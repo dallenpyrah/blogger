@@ -5,7 +5,6 @@
         <div class="card-body">
           <h4 class="card-title text-dark">
             <div v-if="comments.creator && comments.creator.email == state.user.email">
-              <i class="fa fa-trash text-danger" aria-hidden="true" @click="deleteComment"></i>
               {{ comments.body }}
             </div>
             <div v-else>
@@ -23,7 +22,7 @@
       <div class="card-body">
         <h4 class="card-title text-dark">
           <div v-if="comments.creator && comments.creator.email == state.user.email">
-            <i class="fa fa-trash text-danger" aria-hidden="true" @click="deleteComment"></i>
+            <i class="fa fa-trash text-danger pointer" aria-hidden="true" @click="deleteComment"></i>
             {{ comments.body }}
           </div>
           <div v-else>
@@ -86,5 +85,8 @@ export default {
 .comment {
   transition: all .2s;
   color: black
+}
+.pointer{
+  cursor: pointer;
 }
 </style>
