@@ -35,6 +35,7 @@ export default {
   },
   setup(props) {
     const state = reactive({
+      blogPage: true,
       user: computed(() => AppState.user),
       comments: computed(() => AppState.comments)
     })

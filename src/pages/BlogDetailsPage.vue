@@ -19,7 +19,7 @@
             <p class="card-text text-grey-creator badge badge-light" v-if="state.activeBlog.creator">
               {{ state.activeBlog.creator.name }}
             </p>
-            <div v-if="state.activeBlog.creator && state.user.email == state.activeBlog.creator.email" class="text-left">
+            <div v-if="state.user.isAuthenticated && state.activeBlog.creator && state.user.email == state.activeBlog.creator.email" class="text-left">
               <button class="btn btn-dark text-light mr-2" @click="toggleComment">
                 Add Comment
               </button>
@@ -29,6 +29,8 @@
               <button class="btn btn-dark text-primary ml-2" @click="deleteBlog">
                 Delete Blog
               </button>
+            </div>
+            <div v-else class="text-left">
             </div>
           </div>
         </div>
