@@ -118,10 +118,10 @@ export default {
       async createComment() {
         try {
           const comment = { blog: state.activeBlog.id, body: state.newComment.body }
+          document.getElementById('toggle-comment').classList.toggle('hidden')
           await commentsService.createComment(comment)
           // await blogsService.getBlogById(route.params.id)
           await blogsService.getCommentsByBlogId(route.params.id)
-          document.getElementById('toggle-comment').classList.toggle('hidden')
           state.newComment = {}
         } catch (error) {
           console.error(error)
@@ -137,8 +137,8 @@ export default {
       },
       async editBlog() {
         try {
-          await blogsService.editBlog(state.activeBlog.id, state.editBlog)
           document.getElementById('edit-blog').classList.toggle('hidden')
+          await blogsService.editBlog(state.activeBlog.id, state.editBlog)
         } catch (error) {
           console.error(error)
         }
