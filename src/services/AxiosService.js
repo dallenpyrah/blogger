@@ -1,8 +1,8 @@
 import Axios from 'axios'
 
-export const baseURL = window.location.origin.includes('localhost') ? 'http://localhost:3000' : ''
+export const baseURL = window.location.origin.includes('localhost') ? 'https://localhost:5001' : ''
 export const api = Axios.create({
-  baseURL: 'https://bcw-sandbox.herokuapp.com/',
+  baseURL: 'https://localhost:5001',
   timeout: 8000
 })
 

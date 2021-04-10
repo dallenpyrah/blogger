@@ -1,6 +1,6 @@
 <template>
   <div class="col-10">
-    <router-link :to="{name:'BlogDetails', params: {id: comments.blog}}" v-if="isAccountPage">
+    <router-link :to="{name:'BlogDetails', params: {id: comments.blogId}}" v-if="isAccountPage">
       <div class="card comment text-white bg-light">
         <div class="card-body">
           <h4 class="card-title text-dark">
@@ -63,7 +63,7 @@ export default {
       async deleteComment() {
         try {
           await commentsService.deleteComment(props.comments.id)
-          await blogsService.getCommentsByBlogId(props.comments.blog)
+          await blogsService.getCommentsByBlogId(props.comments.blogId)
         } catch (error) {
           console.error(error)
         }

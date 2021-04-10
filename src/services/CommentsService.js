@@ -4,6 +4,7 @@ const { api } = require('./AxiosService')
 class CommentsService {
   async createComment(newComment) {
     try {
+      console.log(newComment)
       return await api.post('api/comments', newComment)
     } catch (error) {
       console.error(error)

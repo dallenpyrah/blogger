@@ -117,7 +117,7 @@ export default {
       state,
       async createComment() {
         try {
-          const comment = { blog: state.activeBlog.id, body: state.newComment.body }
+          const comment = { blogId: state.activeBlog.id, body: state.newComment.body }
           document.getElementById('toggle-comment').classList.toggle('hidden')
           await commentsService.createComment(comment)
           // await blogsService.getBlogById(route.params.id)
